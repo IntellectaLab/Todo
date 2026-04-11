@@ -36,11 +36,9 @@ public class TodoResource {
     @Transactional
     public Response delete(@PathParam("id") Long id) {
 
-        boolean deleted = repo.deleteById(1L);
-
-        return deleted
+    boolean deleted = repo.deleteById(id); 
+    return deleted
         ? Response.noContent().build()
         : Response.status(404).build();
-
-    }
+}
 }
