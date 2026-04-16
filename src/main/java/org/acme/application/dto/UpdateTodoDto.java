@@ -3,7 +3,7 @@ package org.acme.application.dto;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class CreateTodoDto {
+public class UpdateTodoDto {
     private String title;
     private String description;
     private String priority;
@@ -11,7 +11,7 @@ public class CreateTodoDto {
     private UUID listId;
     private String tags;
 
-    public CreateTodoDto() {}
+    public UpdateTodoDto() {}
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }

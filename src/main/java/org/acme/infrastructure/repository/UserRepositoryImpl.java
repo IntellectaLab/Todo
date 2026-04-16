@@ -28,9 +28,8 @@ public class UserRepositoryImpl implements UserRepository, PanacheRepositoryBase
 
     @Override
     public Optional<User> findByFirebaseUuid(String firebaseUuid) {
-        System.out.println("Buscando "+ firebaseUuid);
-        Optional<UserEntity> optionalUserEntity= find("firebaseUuid", firebaseUuid).firstResultOptional();
-        System.out.println("Encontre en base de datos "+ optionalUserEntity.get().getFullName());
+        Optional<UserEntity> optionalUserEntity = find("firebaseUuid", firebaseUuid).firstResultOptional();
+        optionalUserEntity.ifPresent(u -> System.out.println("Usuario encontrado: " + u.getFullName()));
         return optionalUserEntity.map(this::map);
     }
 

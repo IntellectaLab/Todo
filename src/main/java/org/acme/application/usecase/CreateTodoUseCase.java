@@ -14,7 +14,6 @@ import java.util.UUID;
 public class CreateTodoUseCase {
 
     private final TodoRepository todoRepository;
-
     private final AuthContext authContext;
 
     @Inject
@@ -23,16 +22,18 @@ public class CreateTodoUseCase {
         this.authContext = authContext;
     }
 
-    public Todo execute(CreateTodoDto todoDto) {
-        System.out.println("Quien esta creando un todo es: "+ authContext.getUser().getId()+ " "+ authContext.getUser().getFullName());
-        Todo todo=new Todo();
-
-        todo.setTitle(todoDto.getTitle());
-        todo.setDescription(todoDto.getDescription());
+    public Todo execute(CreateTodoDto dto) {
+        Todo todo = new Todo();
         todo.setId(UUID.randomUUID());
+        todo.setTitle(dto.getTitle());
+        todo.setDescription(dto.getDescription());
+        todo.setCompleted(false);
         todo.setCreatedAt(LocalDateTime.now());
-        todo = todoRepository.save(todo);
-        System.out.println("Esta llegando al final de la logica de negocio");
-        return todo;
+        todo.setUserId(authContext.getUser().getId());
+        todo.setPriority(dto.getPriority() != null ? dto.getPriority() : "MEDIUM");
+        todo.setDueDate(dto.getDueDate());
+        todo.setListId(dto.getListId());
+        todo.setTags(dto.getTags());
+        return todoRepository.save(todo);
     }
 }

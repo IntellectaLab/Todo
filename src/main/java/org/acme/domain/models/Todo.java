@@ -1,5 +1,6 @@
 package org.acme.domain.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -9,65 +10,45 @@ public class Todo {
     private String description;
     private boolean completed;
     private LocalDateTime createdAt;
+    private UUID userId;
+    private String priority;
+    private LocalDate dueDate;
+    private UUID listId;
+    private String tags;
+    private LocalDateTime completedAt;
 
-    public Todo(){
+    public Todo() {}
 
-    }
-    public Todo(UUID id, String title, String description, boolean completed, LocalDateTime createdAt) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.completed = completed;
-        this.createdAt = createdAt;
-    }
-    public UUID getId() {
-        return id;
-    }
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public boolean isCompleted() { return completed; }
+    public void setCompleted(boolean completed) { this.completed = completed; }
 
-    public String getDescription() {
-        return description;
-    }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public UUID getUserId() { return userId; }
+    public void setUserId(UUID userId) { this.userId = userId; }
 
-    public boolean isCompleted() {
-        return completed;
-    }
+    public String getPriority() { return priority; }
+    public void setPriority(String priority) { this.priority = priority; }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
+    public LocalDate getDueDate() { return dueDate; }
+    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    public UUID getListId() { return listId; }
+    public void setListId(UUID listId) { this.listId = listId; }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    public String getTags() { return tags; }
+    public void setTags(String tags) { this.tags = tags; }
 
-    @Override
-    public String toString() {
-        return "Todo{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", completed=" + completed +
-                ", createdAt=" + createdAt +
-                '}';
-    }
+    public LocalDateTime getCompletedAt() { return completedAt; }
+    public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
 }

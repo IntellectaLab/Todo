@@ -29,6 +29,17 @@ public class RegisterUserDto {
     @NotBlank(message = "La confirmación de contraseña es obligatoria")
     private String passwordConfirm;
 
+    @NotBlank(message = "El firebaseUuid es obligatorio")
+    private String firebaseUuid;
+
+    public String getFirebaseUuid() {
+        return firebaseUuid;
+    }
+
+    public void setFirebaseUuid(String firebaseUuid) {
+        this.firebaseUuid = firebaseUuid;
+    }
+
     public String getFullName() {
         return fullName;
     }
