@@ -9,6 +9,7 @@ public class User {
     private String role;
     private boolean active;
     private String firebaseUuid;
+    private String avatarUrl;
 
     public User(){
     }
@@ -20,6 +21,16 @@ public class User {
         this.role = role;
         this.active = active;
         this.firebaseUuid = firebaseUuid;
+    }
+
+    public User(UUID id, String email, String fullName, String role, boolean active, String firebaseUuid, String avatarUrl) {
+        this.id = id;
+        this.email = email;
+        this.fullName = fullName;
+        this.role = role;
+        this.active = active;
+        this.firebaseUuid = firebaseUuid;
+        this.avatarUrl = avatarUrl;
     }
 
     public UUID getId() {
@@ -68,5 +79,13 @@ public class User {
 
     public void setFirebaseUuid(String firebaseUuid) {
         this.firebaseUuid = firebaseUuid;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 }
